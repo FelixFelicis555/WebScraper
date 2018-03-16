@@ -18,13 +18,25 @@ def fetch(category_url):
 		r=requests.get(category_url,headers=headers,timeout=5)
 		if r.status_code==200:
 			html=r.text
-			#print(html)
 			soup=BeautifulSoup(html,'lxml')
+			#Getting all the links from one page.
 			links=soup.select('.a-row .a-link-normal')
 			for i in links:
-				#print(i['href']) #only want links not the whole section so href is used.
 				total_links.append(i['href'])
-			print(total_links)
+			#Getting the total pages.
+			total_pages=155
+		for x in range(2, total_pages + 1):
+			#sleep(2)
+			cat_url = 'https://www.amazon.in/s/ref=sr_pg_{0}?fst=as%3Aoff&rh=n%3A976419031%2Cn%3A!976420031%2Cn%3A1389401031%2Cn%3A1389432031%2Cp_n_operating_system_browse-bin%3A1485077031&page=4&bbn=1389432031&ie=UTF8&qid=1521200739'.format(x)
+			#print('Processing...' + cat_url)
+			r = requests.get(cat_url, headers=headers, timeout=5)
+			if r.status_code == 200:
+				html = r.text
+				soup = BeautifulSoup(html, 'lxml')
+				links = soup.select('.a-row .a-link-normal')
+				for i in links:
+					total_links.append(i['href'])
+		print(len(total_links))
 
 
 	except requests.ConnectionError as e:
