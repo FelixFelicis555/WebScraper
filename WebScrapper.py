@@ -20,9 +20,11 @@ def fetch(category_url):
 			html=r.text
 			#print(html)
 			soup=BeautifulSoup(html,'lxml')
-			links=soup.select('.atfResults .a-link-normal')
+			links=soup.select('.a-row .a-link-normal')
 			for i in links:
-				print(links[0].text)
+				#print(i['href']) #only want links not the whole section so href is used.
+				total_links.append(i['href'])
+			print(total_links)
 
 
 	except requests.ConnectionError as e:
