@@ -1,0 +1,2 @@
+﻿Title,Price,Features
+Redmi Note 4 (Black, 64 GB)  (4 GB RAM),₹10999,4 GB RAM | 64 GB ROM | Expandable Upto 128 GB|5.5 inch Full HD Display|13MP Rear Camera | 5MP Front Camera|4100 mAh Li-Polymer Battery|Qualcomm Snapdragon 625 64-bit Octa Core 2GHz Processor
